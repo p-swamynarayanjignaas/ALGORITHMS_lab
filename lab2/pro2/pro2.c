@@ -34,21 +34,21 @@ int main(){
 int gcd_middle_school(int m,int n){
 	if(m>n)
 		gcd_middle_school(n,m);
-		int factor = 2;
-		int gcd = 1;
-		int t = m;
-		for(factor = 2;factor<=t;factor++){
+	int factor = 2;
+	int gcd = 1;
+	int t = m;
+	for(factor = 2;factor<=t;factor++){
+		optcount++;
+		while(m%factor==0 && n%factor == 0){
 			optcount++;
-			while(m%factor==0 && n%factor == 0){
+			gcd = gcd * factor;
+			m = m/factor;
+			n= n/factor;
+			if(m==0||n==0){
 				optcount++;
-				gcd = gcd * factor;
-				m = m/factor;
-				n= n/factor;
-				if(m==0||n==0){
-					optcount++;
-					return gcd;
-				}
+				return gcd;
 			}
 		}
+	}
 	return gcd;
 }

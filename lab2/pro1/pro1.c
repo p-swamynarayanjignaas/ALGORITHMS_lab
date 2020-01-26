@@ -23,7 +23,7 @@ int main(){
 		time_taken = ((double)t)/CLOCKS_PER_SEC;
 		printf("GCD of (%d,%d) = %d\n",a,b,ans);
 		printf("Time = %lf\n",time_taken);
-		fprintf(fp,"%d,%lf,%d\n",a+b,time_taken,optcount);
+		fprintf(fp,"%d,%d\n",a+b,optcount);
 		optcount = 0;	
 	}
 
