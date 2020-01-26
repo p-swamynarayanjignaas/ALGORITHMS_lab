@@ -26,7 +26,6 @@ int main(){
 	for(int i=0;i<size_of_array;i++){
 		sum_of_set+=array[i];
 	}
-	printf("sum %d\n",sum_of_set);
 	bubble_sort(array,size_of_array);
 	time = clock();
 	partition(array,size_of_array,sum_of_set);
@@ -65,13 +64,13 @@ void partition(int *array,int n,int sum_of_set){
 		}
 		p=0;
 	}
-	for(int i=0;i<no_of_subsets;i++){
-		printf("%d)",i+1);
-		for(int j=0;j<=n;j++){
-			printf("%d",table[i][j]);
-		}
-		printf("\n");
-	}
+	// for(int i=0;i<no_of_subsets;i++){
+	// 	printf("%d)",i+1);
+	// 	for(int j=0;j<=n;j++){
+	// 		printf("%d",table[i][j]);
+	// 	}
+	// 	printf("\n");
+	// }
 	int sum = 0;
 	for(int i=0;i<no_of_subsets;i++){
 		for(int j=0;j<n;j++){
@@ -80,15 +79,14 @@ void partition(int *array,int n,int sum_of_set){
 		table[i][n] = sum;
 		sum = 0;
 	}
-	for(int i=0;i<no_of_subsets;i++){
-		printf("%d)sum = %d\n",(i+1),table[i][n]);
-	}
+	// for(int i=0;i<no_of_subsets;i++){
+	// 	printf("%d)sum = %d\n",(i+1),table[i][n]);
+	// }
 	int flag  = 0;
 	for(int i=0;i<no_of_subsets;i++){
 		for(int j=1;j<no_of_subsets;j++){
 			if(table[i][n] == table[j][n]&&(disjoint_check(table[i],table[j],n,sum_of_set)==1&&(i!=j))){
 				flag = 1;
-				printf("%d,%d\n",i+1,j+1);
 				index1=i;
 				index2=j;
 				break;
@@ -112,7 +110,7 @@ void partition(int *array,int n,int sum_of_set){
 			}
 		}
 			printf("\n");
-			printf("Set1->");
+			printf("Set2->");
 		for(int i=0;i<n;i++){
 			if(table[index2][i]!=0){
 				printf("%d ",table[index2][i]);
@@ -130,12 +128,18 @@ int disjoint_check(int *arr1,int *arr2,int n,int sum_of_set){
 	int sum1=0,sum2=0;
 	for(int i=0;i<n;i++){
 		sum1 += arr1[i];
-	}
-	for(int i=0;i<n;i++){
 		sum2 += arr2[i];
 	}
-	if(sum1+sum2==sum_of_set){
-		return 1;
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			if(arr1[i]==arr2[j]){
+				if(arr1[i]==0 && arr2[j]==0)
+				return 0;
+			}
+		}
 	}
+	// if(sum1+sum2==sum_of_set){
+	// 	return 1;
+	// }
 	return 0;
 }
