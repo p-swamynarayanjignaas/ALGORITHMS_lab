@@ -1,1 +1,2 @@
 This is a repository for programs done in Algorithms lab
+[![Run on Repl.it](https://repl.it/badge/github/p-swamynarayanjignaas/ALGORITHMS_lab)](https://repl.it/github/p-swamynarayanjignaas/ALGORITHMS_lab)
